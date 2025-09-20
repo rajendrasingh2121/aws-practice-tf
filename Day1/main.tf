@@ -10,11 +10,13 @@ terraform {
 provider "aws" {
   region = "eu-west-1"
 }
-# Create a VPC
-resource "aws_vpc" "firstvpc" {
-  cidr_block = "10.0.0.0/28"
-  tags = {
-    Name = "firstvpc"
-  }
 
+resource aws_s3_bucket "tfbackend" {
+  bucket = "tfstoragebucketdemo2025"
+  tags = {
+    Name        = "tfbackend"
+    Environment = "Dev"
+  }
 }
+
+
